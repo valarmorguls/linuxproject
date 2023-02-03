@@ -8,6 +8,8 @@
 #ifndef _RELATIONINFO_H
 #define _RELATIONINFO_H
 
+#include "common/macro.h"
+
 class RelationInfo {
 public:
     int CheckFriend(int other_id);
@@ -21,9 +23,9 @@ public:
     
 private:
     GETSETVAR(int, user_id)
-    GETSETVAR(int, friend_id)
+    GETSETVAR(int, friend_count)
     int friend_list_[10240];
-    GETSETVAR(int, black_id)
+    GETSETVAR(int, black_count)
     int black_list_[10240];
 }
 

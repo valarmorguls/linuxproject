@@ -1,42 +1,38 @@
 /*************************************************************************
-	> File Name: UserManager.h
-	> Author: 
-	> Mail: 
-	> Created Time: Thu 02 Feb 2023 02:58:20 PM CST
+	> FileName: UserManager.h
+	> Author  : Li Chao
  ************************************************************************/
 
 #ifndef _USERMANAGER_H
 #define _USERMANAGER_H
-
-#include <stdio.h>
-#include "string.h"
 #include "common/macro.h"
 #include "UserInfo.h"
+#include "DbManager.h"
 
-class UserManager {
-public:
-    int Start();
-    int Proc();
-    int Restart();
-    int Shutdown();
-
-public:
-    UserInfo *GetUser(int user_id);
-    int CheckExist(int user_id);
-    int CreateUser(const char *user_name, const char *password, int from, int reg_time);
-    int DeleteUser(int user_id);
-    int SaveUser(); //todo
-    int LoginCheck(const char *user_name, const char *password);
-    int UserLogout(int user_id, int time_now);
-    int GetUserIdByUserName(const char* user_name);
-    int UpdateLoginTime(int user_id, int time_now);
-    //int UpdateUserLogoutTime(int user_id, int time_now);
-    //int UpdateUserFreshTime(int user_id, int time_now);
+class UserManager{
 private:
-    UserInfo users_[10240];
-    GETSETVAR(int, user_count);
-    GETSETVAR(int, cur_user_id);
+	UserInfo users_[10240];
+	GETSETVAR(int,user_count)
+	GETSETVAR(int,cur_user_id)
+private:
+	DbManager* db_svr_;
+public:
+	int Start(DbManager* db_svr);
+	int Proc();
+	int Restart();
+	int Shutdown();
 
+public:
+	UserInfo *GetUser(int user_id);
+	int CheckExist(int user_id);
+	int CreateUser(const char* user_name, const char *password, int from, int reg_time);
+	int DeleteUser(int user_id);
+	int SaveUser();//todo
+	int LoginCheck(const char* user_name,const char* password);
+	int UserLogout(int user_id,int time_now);
+	int GetUserIdByUserName(const char* user_name);
+	int UpdateLoginTime(int user_id,int time_now);
+	//int UpdateUserLogoutTime(int user_id,int time_now);
+	//int UpdateUserFreshTime(int user_id,int time_now);
 };
-
 #endif

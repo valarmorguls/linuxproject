@@ -25,7 +25,7 @@ public: \
         return name##_; \
     }  \
     void set_##name(const char *value) { \
-        strncpy(name##_, value, size) \
+        strncpy(name##_, value, size); \
     } \
 private: \
     char name##_[size]; \

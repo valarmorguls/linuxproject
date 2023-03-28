@@ -10,7 +10,7 @@
 
 #define SUCCESS 0
 
-#define USER_NOT_EXIST 100
+#define USER_NOT_EXIST  100
 #define USER_EXIST 101
 #define WRONG_PASSWORD 102
 #define USER_TOO_MUCH 103
@@ -41,6 +41,12 @@
 #define RELATION_NOT_EXIST 600
 #define RELATION_TOO_MUCH 601
 #define RELATION_EXIST 602
+
+#define DB_CONN_INIT_FAIL 701
+#define DB_CONN_CONNECT_FAIL 702
+#define DB_QUERY_FAIL 703
+#define DB_BUSY 704
+#define DB_NO_MORE_DATA 705
 
 
 #endif
